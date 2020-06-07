@@ -7,11 +7,27 @@
  */
 
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import Home from './screens/Home';
+import HomeScreen from './screens/Home/Home';
+import ViewNoteScreen from './screens/ViewNote/ViewNote';
+
+const Stack = createStackNavigator();
 
 const App = () => {
-  return <Home />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="ViewNote" component={ViewNoteScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
 
 export default App;
