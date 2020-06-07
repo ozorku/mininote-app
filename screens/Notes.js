@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 
 function truncate(str) {
   return str.slice(0, 100) + '...';
@@ -11,51 +11,54 @@ let body =
 
 const notes = [
   {
-    num: 1,
+    id: 1,
     title: 'This is title',
     body,
   },
   {
-    num: 2,
+    id: 2,
     title: 'This is title',
     body,
   },
   {
-    num: 3,
+    id: 3,
     title: 'This is title',
     body,
   },
   {
-    num: 4,
+    id: 4,
     title: 'This is title',
     body,
   },
   {
-    num: 5,
+    id: 5,
     title: 'This is title',
     body,
   },
   {
-    num: 6,
+    id: 6,
     title: 'This is title',
     body,
   },
   {
-    num: 7,
+    id: 7,
     title: 'This is title',
     body,
   },
 ];
 
-const NoteCard = ({title, num}) => {
+const NoteCard = ({title, id}) => {
+  const openNote = () => {
+    alert();
+  };
   return (
-    <View style={styles.noteContainer}>
+    <TouchableOpacity onPress={openNote} style={styles.noteContainer}>
       <View style={styles.noteHeading}>
         <Text style={styles.noteTitle}>{title}</Text>
-        <Text style={styles.noteNum}>{num}</Text>
+        <Text style={styles.noteId}>{id}</Text>
       </View>
       <Text style={styles.noteBody}>{truncate(body)}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -63,7 +66,7 @@ const Notes = () => {
   return (
     <View style={styles.notes}>
       {notes.map((note) => {
-        return <NoteCard title={note.title} body={note.body} num={note.num} />;
+        return <NoteCard title={note.title} body={note.body} id={note.id} />;
       })}
     </View>
   );
@@ -86,7 +89,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
   },
-  noteNum: {
+  noteId: {
     fontSize: 28,
     fontWeight: 'bold',
     color: '#ccc',

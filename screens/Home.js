@@ -18,8 +18,6 @@ import {
 } from 'react-native';
 
 import Notes from './Notes';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Icon from 'react-native-vector-icons/AntDesign';
 
 const Home = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -35,16 +33,8 @@ const Home = () => {
             style={[styles.header, {display: showSearch ? 'none' : 'flex'}]}>
             <Text style={styles.title}>My Notes</Text>
             <TouchableOpacity onPress={toggleSearch}>
-              <Text>click</Text>
+              <Text>Search</Text>
             </TouchableOpacity>
-
-            {/* <Icon
-              onPress={toggleSearch}
-              name="search1"
-              size={25}
-              color="#000"
-            /> */}
-            {/* <FontAwesome5 name={'comments'} /> */}
           </View>
           {/* search */}
           <View
@@ -62,7 +52,7 @@ const Home = () => {
         </View>
       </ScrollView>
       <TouchableOpacity style={styles.floatingButton}>
-        {/* <Icon name="plus" size={25} color="#fff" /> */}
+        <Text style={{fontSize: 40, color: 'white'}}>+</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
