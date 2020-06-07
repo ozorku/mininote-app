@@ -18,8 +18,8 @@ import {
 } from 'react-native';
 
 import Notes from './Notes';
-// import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-// import Icon from 'react-native-vector-icons/AntDesign';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const Home = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -33,7 +33,11 @@ const Home = () => {
           {/* header */}
           <View
             style={[styles.header, {display: showSearch ? 'none' : 'flex'}]}>
-            <Text style={styles.title}>My Notsses</Text>
+            <Text style={styles.title}>My Notes</Text>
+            <TouchableOpacity onPress={toggleSearch}>
+              <Text>click</Text>
+            </TouchableOpacity>
+
             {/* <Icon
               onPress={toggleSearch}
               name="search1"
@@ -83,7 +87,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   searchArea: {
-    position: 'absolute',
+    position: 'relative',
     top: 0,
     left: 0,
     backgroundColor: 'white',
